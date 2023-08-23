@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+:root{
+    --team-builder: hsl(0, 78%, 62%);
+    --supervisor: hsl(180, 62%, 55%);
+    --karma: hsl(34, 97%, 64%);
+    --calculator: hsl(212, 86%, 64%);
+    --headings: hsl(234, 12%, 34%);
+    --paragraphs: hsl(229, 6%, 66%);
+    --main-background: hsl(0, 0%, 98%);
+    --font-size: 0.9375rem;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+p,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    overflow-wrap: break-word;
+}
+body{
+    background: var(--main-background);
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--font-size);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    margin: 4rem 2rem;
+}
+h1{
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--headings);
+    font-weight: 700;
+    line-height: 2.3rem;
+}
+h1 span{
+    color: var(--headings);
+    font-weight: 200;
+}
+.paragraph{
+    color: var(--paragraphs);
+    font-weight: 400;
+    line-height: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+.cards__section{
+    margin: 4rem 0;
+    display: grid;
+    gap: 2rem;
+}
+.card{
+    background: white;
+    border-radius: 5px;
+    padding: 1.5rem;
+    box-shadow: 0px 20px 50px -40px rgba(0,0,0,0.75);
+}
+.card h2{
+    color: var(--headings);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.card p{
+    color: var(--paragraphs);
+    font-size: 0.8rem;
+    margin: .7rem 0;
+    line-height: 1.5rem;
+}
+.card img{
+    margin-top: 2rem;
+    margin-left: 75%;
+}
+.supervisor{
+    border-top: 5px solid var(--supervisor);
+}
+.team__builder{
+    border-top: 5px solid var(--team-builder);
+}
+.karma{
+    border-top: 5px solid var(--karma);
+}
+.calculator{
+    border-top: 5px solid var(--calculator);
+}
+
+/** Media Queries **/
+
+/**Tablet**/
+@media (min-width: 768px) and (max-width: 1199px){
+    .container{
+        margin: 4rem 4rem;
+    }
+    .cards__section{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/**Desktop**/
+
+@media screen and (min-width: 1200px){
+    .container{
+        margin: 4rem 10rem;
+    }
+    .paragraph{
+        margin: 1rem 18rem;
+    }
+    .cards__section{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "supervisor builder calculator"
+        "supervisor karma calculator";
+    }
+    .card{
+        height: 16rem;
+        padding: 2rem;
+    }
+    .supervisor{
+        grid-area: supervisor;
+        margin-top: calc(100% - 14rem);
+    }
+    .team__builder{
+        grid-area: builder;
+    }
+    .karma{
+        grid-area: karma;
+    }
+    .calculator{
+        grid-area: calculator;
+        margin-top: calc(100% - 14rem);
+    }
+}
